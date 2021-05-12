@@ -13,7 +13,7 @@ const FIG_CROSS = figures.cross;
 
 const createReporter = () => {
   const output = through2();
-  const p = parser();
+  const p = new parser();
   const stream = duplexer(p, output);
   const startedAt = Date.now();
 
@@ -64,11 +64,25 @@ const createReporter = () => {
       return value.replace(/(^\s*)(.*)/g, (m, one, two) => one + style(two))
     };
 
+    // Diag fromat received from alsatian
+    // {
+    //   message: 'Expected 2 to be 4.',
+    //   severity: 'fail',
+    //   data: { got: '2', expect: '4' }
+    // }
+
     let {
-      at,
-      actual,
-      expected
+      message,
+      severity,
+      data: {
+        got,
+        expect
+      }
     } = assert.diag
+
+    let at = 'Not implemented'
+    let actual = got;
+    let expected = expect;
 
     let expected_type = toString(expected)
 
@@ -93,6 +107,11 @@ const createReporter = () => {
     }
 
     println(`${chalk.red(FIG_CROSS)}  ${chalk.red(name)} at ${chalk.magenta(at)}`, 2);
+    
+    if (message) {
+      println(`${chalk(message)}`, 4);
+    }
+
 
     if (expected_type === 'object') {
       const delta = jsondiffpatch.diff(actual[failed_test_number], expected[failed_test_number])

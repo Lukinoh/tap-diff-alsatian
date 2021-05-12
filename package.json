@@ -1,38 +1,39 @@
 {
-  "name": "tap-diff",
-  "version": "0.1.1",
-  "description": "The most human-friendly TAP reporter",
+  "name": "tap-diff-alsatian",
+  "version": "1.0.0",
+  "description": "The most human-friendly TAP reporter for alsatian",
   "main": "./distributions/index.js",
   "bin": {
     "tap-diff": "./distributions/cli.js"
   },
   "scripts": {
-    "babel": "babel ./sources --out-dir ./distributions",
+    "babel": "babel ./sources --out-dir ./distributions --plugins=@babel/plugin-transform-modules-commonjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "axross <kou@axross.org> (http://axross.me/)",
   "license": "MIT",
   "dependencies": {
-    "chalk": "^1.1.1",
-    "diff": "^2.2.1",
+    "chalk": "^4.1.1",
+    "diff": "^5.0.0",
     "duplexer": "^0.1.1",
-    "figures": "^1.4.0",
-    "jsondiffpatch": "^0.1.41",
-    "pretty-ms": "^2.1.0",
-    "tap-parser": "^1.2.2",
-    "through2": "^2.0.0"
+    "figures": "^3.2.0",
+    "jsondiffpatch": "^0.4.1",
+    "pretty-ms": "^7.0.1",
+    "tap-parser": "^10.1.0",
+    "through2": "^4.0.2"
   },
   "devDependencies": {
-    "babel": "^5.8.34"
+    "@babel/cli": "^7.13.16",
+    "@babel/core": "^7.14.0",
+    "@babel/plugin-transform-modules-commonjs": "^7.14.0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/axross/tap-diff.git"
+    "url": "git+https://github.com/Lukinoh/tap-diff-alsatian"
   },
   "bugs": {
-    "url": "https://github.com/axross/tap-diff/issues"
+    "url": "https://github.com/Lukinoh/tap-diff-alsatian/issues"
   },
-  "homepage": "https://github.com/axross/tap-diff#readme",
+  "homepage": "https://github.com/Lukinoh/tap-diff-alsatian#readme",
   "keywords": [
     "tap",
     "tape",

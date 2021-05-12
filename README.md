@@ -1,6 +1,6 @@
-# tap-diff
+# tap-diff-alsatian
 
-[![npm version](https://badge.fury.io/js/tap-diff.svg)](http://badge.fury.io/js/tap-diff)
+[![npm version](https://badge.fury.io/js/tap-diff-alsatian.svg)](http://badge.fury.io/js/tap-diff-alsatian)
 
 The most human-friendly [TAP reporter](https://github.com/substack/tape#pretty-reporters).
 
@@ -8,23 +8,20 @@ The most human-friendly [TAP reporter](https://github.com/substack/tape#pretty-r
 
 ![Screenshot](screenshot2.png)
 
+## Info
+
+This package is an updated version of tap-diff with:
+ - Dependencies update
+ - Support of last release version of alsatian (3.2.1).
+
 ## How to use
 
-You can use tap-diff in the same way as other [TAP reporters](https://github.com/substack/tape#pretty-reporters).
-
 ```
-npm install -g tap-diff
+npm install tap-diff-alsatian
 ```
 
 ```
-tape ./*.test.js | tap-diff
-```
-
-tap-diff uses [chalk](https://www.npmjs.com/package/chalk) for adding color, which automatically detects
-color terminals. If you're piping the output and want to force color:
-
-```
-FORCE_COLOR=t tape ./*.test.js | tap-diff
+alsatian './**/*.spec.ts' --tap | tap-diff-alsatian
 ```
 
 Or use with `createStream()`:
@@ -33,7 +30,7 @@ Or use with `createStream()`:
 'use strict'
 
 const test = require('tape')
-const tapDiff = require('tap-diff')
+const tapDiff = require('tap-diff-alsatian')
 
 test.createStream()
   .pipe(tapDiff())
