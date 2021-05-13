@@ -1,10 +1,10 @@
 {
   "name": "tap-diff-alsatian",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The most human-friendly TAP reporter for alsatian",
   "main": "./distributions/index.js",
   "bin": {
-    "tap-diff": "./distributions/cli.js"
+    "tap-diff-alsatian": "./distributions/cli.js"
   },
   "scripts": {
     "babel": "babel ./sources --out-dir ./distributions --plugins=@babel/plugin-transform-modules-commonjs",
